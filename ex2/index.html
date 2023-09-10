@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex2</title>
+</head>
+<body>
+    <script>
+        function grausParaRadianos(graus) {
+        return graus * (Math.PI / 180)
+        }
+
+        for (let angulo = 0; angulo <= 360; angulo += 45) {
+        const radianos = grausParaRadianos(angulo)
+        const seno = Math.sin(radianos).toFixed(2)
+        const cosseno = Math.cos(radianos).toFixed(2)
+        let tangente
+            if (angulo % 180 === 0) {
+                tangente = 0
+            } else if (angulo % 90 === 0) {
+                tangente = 'Indefinido'
+            } else {
+                tangente = Math.tan(radianos).toFixed(2)
+            }
+            console.log(`${angulo}°  -  ${seno}  -  ${cosseno}  -  ${tangente}`)
+        }
+
+    </script>
+</body>
+</html>
