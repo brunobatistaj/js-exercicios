@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex1</title>
+</head>
+<body>
+    <script>
+        // Função para calcular a área da circunferência
+        function calcularArea(raio) {
+            const area = Math.PI * Math.pow(raio, 2);
+            return area;
+        }
+        
+        const raio = parseFloat(prompt("Digite o raio da circunferência:"));
+        
+
+        if (!isNaN(raio)) {
+            const area = calcularArea(raio);
+            alert(`A área da circunferência é ${area.toFixed(2)}`);
+        } else {
+            console.log("Insira um valor válido.");
+        }
+
+    </script>
+</body>
+</html>
