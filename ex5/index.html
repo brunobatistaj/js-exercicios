@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex5</title>
+</head>
+<body>
+    <script>
+        const nome = ['Adriano', 'Lucas', 'João', 'Paula', 'Ana']
+
+        function sorteio(nome){
+            const sorteado = Math.floor(Math.random()*nome.length)
+            return nome[sorteado]
+        }
+
+        const realizaSorteio = sorteio(nome)
+        console.log(`${realizaSorteio}`)
+    </script>
+</body>
+</html>
