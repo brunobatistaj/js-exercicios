@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex3</title>
+</head>
+<body>
+    
+    <script>
+        const num = parseInt(prompt("Digite numero de 1 a 6:"));
+        
+        function gerarNumeroAleatorio(min, max) {
+        return Math.floor(Math.random() * (max - min +1)) + min;
+        }
+
+        const numAleatorio = gerarNumeroAleatorio(1, 6);
+        console.log(numAleatorio)
+        
+        alert(numAleatorio === num ? 'Ganhou!' : 'Perdeu!')
+
+
+    </script>
+    
+</body>
+</html>
