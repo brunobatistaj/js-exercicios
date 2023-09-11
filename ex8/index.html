@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let palavras = []
+        let palavra
+
+        while(true){
+            palavra = prompt("Digite um nome: ")
+            if(palavra === ""){
+                break
+            }
+            palavras.push(palavra)
+        }
+        const palavrasFormatadas = palavras.map (formatar =>{
+            return formatar.charAt(0).toUpperCase() + formatar.slice(1).toLowerCase()
+        })
+        
+        console.log(palavrasFormatadas)
+    </script>
+<!-- charAt(0) é usado para pegar a primeira letra, e slice(1) é usado para obter o restante da palavra a partir do segundo caractere. Em seguida, as duas partes são concatenadas para formar a palavra formatada. O método map() é usado para aplicar essa transformação a todas as palavras do array. -->
+</body>
+</html>
