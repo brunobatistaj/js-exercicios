@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex6</title>
+</head>
+<body>
+    <script>
+        let nomes = []
+        let nome
+
+        while(true){
+            nome = prompt("Digite um nome: ")
+            if(nome === ""){
+                break
+            }
+            nomes.push(nome)
+        }
+
+        if(nomes.length === 0){
+            console.log("Sem nome inserido")
+        }else{
+            let nomeMaior = nomes[0]
+            for(let i = 1; i < nomes.length; i++){
+                if(nomes[i].length >= nomeMaior.length){
+                    nomeMaior = nomes[i]
+                }
+            }
+
+            let nomeMenor = nomes[0]
+            for(let i = 1; i< nomes.length; i++){
+                if(nomes[i].length <= nomeMenor.length){
+                    nomeMenor = nomes[i]
+                }   
+            }
+            alert(`Nome mais longo: ${nomeMaior} com ${nomeMaior.length} letras`)
+            alert(`Nome mais curto: ${nomeMenor} com ${nomeMenor.length} letras`)
+        }
+
+    </script>
+</body>
+</html>
