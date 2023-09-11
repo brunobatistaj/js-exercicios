@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex10</title>
+</head>
+<body>
+    <input id="frase" type="text" placeholder="Digite uma frase" required>
+    <input id="palavra" type="text" placeholder="Digite uma palavra" required>
+    <button id="btn">Enviar</button>
+    <p id="resp"></p>
+
+    <script>
+        const btn = document.querySelector('#btn')
+            btn.addEventListener("click", calc)
+        const frase = document.querySelector('#frase')
+        const palavra = document.querySelector('#palavra')
+        const resp = document.querySelector('#resp')
+
+        function calc(){
+            resp.innerText = ""
+            const fraseTxt = frase.value.toLowerCase()
+            const palavraTxt = palavra.value.toLowerCase()
+
+            if(palavraTxt.length > 1){
+            let ocorrencias = 0;
+            let posicao = -1; //se aparece uma vez a palavra digitada, ja soma ocorrencias
+
+            while ((posicao = fraseTxt.indexOf(palavraTxt, posicao + 1)) !== -1) {
+                ocorrencias++;
+            }
+
+            resp.innerText += `A palavra ${palavraTxt} aparece ${ocorrencias} vezes na frase ${fraseTxt}`
+            }else{
+                resp.innerText = "Palavra deve ter no minimo 2 letras"
+            }
+        }
+    </script>
+</body>
+</html>
