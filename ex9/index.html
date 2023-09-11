@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex8</title>
+</head>
+<body>
+    <button id="btn">Quantos dias para o natal?</button>
+    <p id="resp"></p>
+    <script>
+        const btn = document.querySelector('#btn')
+            btn.addEventListener("click", contar)
+        const resp = document.querySelector('#resp')
+
+        function contar(){
+            resp.innerText = "";
+            const dataAtual = new Date();
+                const ano = dataAtual.getFullYear(); 
+                const mes = dataAtual.getMonth() + 1; // +1 para obter 1 a 12
+                const dia = dataAtual.getDate();
+
+            const natalDia = 25
+            const natalMes = 12
+
+            if(dia > natalDia && mes === natalMes){
+                const falta = 365 + (31-dia)
+                resp.innerText += `Faltam ${falta} dias`
+            }else if(dia<25){
+                const faltam = (natalDia-dia)+((natalMes-mes)*30)
+                resp.innerText += `Faltam ${faltam} dias`
+            }else{
+                resp.innerText += "É natal!"
+            }
+        }
+        // considerei todo mes como 30 dias
+    </script>
+</body>
+</html>
