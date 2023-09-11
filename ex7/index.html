@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex7</title>
+</head>
+<body>
+    <button id="iniciar">Iniciar</button>
+    <table id="tabela">
+        <thead>
+            <tr>
+                <th>Palavra Original -----------</th>
+                <th>Palavra Invertida</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+            const iniciarBotao = document.getElementById("iniciar")
+            const tabelaBody = document.querySelector("tbody")
+
+            iniciarBotao.addEventListener("click", function () {
+                const palavrasInvertidas = []
+
+                while (true) {
+                    const palavra = prompt("Digite uma palavra:")
+
+                    if (palavra === "") {
+                        break
+                    }
+
+                    // Inverte a palavra
+                    const palavraInvertida = palavra.split("").reverse().join("")
+
+                    // Adicione a palavra original e invertida ao array
+                    palavrasInvertidas.push({original: palavra,
+                                            invertida: palavraInvertida })
+                }
+
+                tabelaBody.innerHTML = ""
+
+                palavrasInvertidas.forEach(item => {
+                    const row = tabelaBody.insertRow()//insere linha
+                    const cell1 = row.insertCell(0)//insere celula na linha
+                    const cell2 = row.insertCell(1)//insere celula na linha
+
+                    cell1.textContent = item.original
+                    cell2.textContent = item.invertida
+                })
+            })
+
+    </script>
+</body>
+</html>
