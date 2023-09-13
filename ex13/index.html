@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex13</title>
+</head>
+<body>
+    <script>
+        let conj = []
+        let numero
+
+        while(true){
+            numero = prompt("Digite um numero: ")
+            if(numero === null){
+                break
+            }
+            const testeNum = parseInt(numero)
+            if(!isNaN(testeNum)){
+                conj.push(numero)
+            }else{
+                numero = prompt("Digite uma numero valido: ")
+            }
+        }
+        
+        const crescente = conj.slice().sort((a, b) => a - b);
+        const decrescente = conj.slice().sort((a, b) => b - a);
+
+        alert("Números em ordem crescente: " + crescente.join(", "));
+        alert("Números em ordem decrescente: " + decrescente.join(", "));
+
+        // isNaN(numero) retorna true se numero não é um número (ou seja, é um NaN), e false se numero é um número. Portanto, usando !isNaN(numero), estamos verificando se numero não é um NaN, ou seja, se é um número válido.
+        //slice() é um método usado para criar uma cópia superficial de parte de um array.
+        
+    </script>
+</body>
+</html>
