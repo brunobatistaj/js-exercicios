@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex12</title>
+</head>
+<body>
+    <script>
+    let palavras = []
+    let palavra
+
+    while(true){
+        palavra = prompt("Digite uma palavra: ")
+        if(palavra === ""){
+            break
+        }
+        palavras.push(palavra)
+    }
+
+    const palavrasDecrescentes = palavras.map(formatar =>
+        formatar.charAt(0).toUpperCase() + formatar.slice(1))
+    palavrasDecrescentes.sort((a, b) => b.localeCompare(a))
+        alert(palavrasDecrescentes)
+    </script>
+</body>
+</html>
