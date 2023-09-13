@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex14</title>
+</head>
+<body>
+    <script>
+
+        function calNotas(nota1, nota2, nota3, rec){
+            if(!isNaN(rec)){
+                const media = (nota1+nota2+nota3)/3
+                return Math.max(rec,media)
+
+            }else{
+                const media2 = ((nota1*3.5)+(nota2*3.5)+(nota3*3))/10
+                return media2
+            }
+        }
+        
+        const nota1 = parseFloat(prompt("Digite nota 1: "))
+        const nota2 = parseFloat(prompt("Digite nota 2: "))
+        const nota3 = parseFloat(prompt("Digite nota 3: "))
+        const rec = parseFloat(prompt("Digite nota de recuperaçao: "))
+
+        let notaComRep;
+        let notaSemRep;
+
+        if (!isNaN(nota1) && !isNaN(nota2) && !isNaN(nota3)) {
+            if (!isNaN(rec)) {
+                notaComRep = calNotas(nota1, nota2, nota3, rec);
+                alert ("Nota com recuperação: " + notaComRep)
+            }else{
+                notaSemRep = calNotas(nota1, nota2, nota3);
+                alert ("Nota final: " + notaSemRep)
+            }
+        } else {
+            alert("Certifique-se de inserir valores válidos.");
+        }
+    </script>
+</body>
+</html>
