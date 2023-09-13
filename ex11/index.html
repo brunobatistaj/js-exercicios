@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex11</title>
+</head>
+<body>
+    <script>
+
+        let frase = prompt("Digite uma frase: ")
+        let palavraSubstituida = prompt("Digite uma plavra que deseja substituir: ")
+        let novaPalavra = prompt("Digite a palavra substituta: ")
+
+        if(frase === "" || palavraSubstituida === "" || novaPalavra === ""){
+            alert("Campo(s) em branco")
+        }
+
+        const novaFrase = frase.replace(new RegExp(palavraSubstituida, 'g'), novaPalavra)
+        alert ("Nova frase: " + novaFrase)
+
+        // replace. Ela recebe dois argumentos: a expressão regular que representa a palavraAntiga e a palavraNova que será usada como substituição. 'g' é uma flag que significa "global", substitui todas as ocorrências da palavraAntiga na frase antiga
+    </script>
+    
+</body>
+</html>
