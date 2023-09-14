@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex19</title>
+</head>
+<body>
+    <span>Tempo cronometro</span>
+    <input type="number" name="segundos" id="segundos" placeholder="Digite tempo em segundos" required>
+    <button id="btn">Começar</button>
+    <button id="btn2">Cancelar</button>
+    <p id="resp"></p>
+
+    <script>
+        const segundos = document.querySelector('#segundos')
+        const resp= document.querySelector('#resp')
+        let timerID
+
+        function cronometro(){
+            const timer = parseInt(segundos.value)
+            resp.innerText = "";
+
+            if(isNaN(timer) || timer <=0){
+                alert("insira um número de segundos válido.");
+                return;
+            }
+            btn.style.display = "none"
+            
+            timerID = setTimeout(function () {
+                resp.innerText = "Alarme tocou!";
+                btn.style.display = "block"; // Habilita o botão após o cronômetro
+            }, timer * 1000);
+        }
+
+        function cancelarTimer(){
+                clearTimeout(timerID)
+                resp.innerText = "Alarme CANCELADO!";
+                btn.style.display = "block"
+            }
+
+        const btn = document.querySelector('#btn')
+            btn.addEventListener("click", cronometro)
+        
+            const btn2 = document.querySelector('#btn2')
+            btn2.addEventListener("click", cancelarTimer)
+    </script>
+</body>
+</html>
