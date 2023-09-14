@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex20</title>
+</head>
+<body>
+    <span>Exibição de palavras a cada 10 segundos</span>
+    <p id="resp"></p>
+    <script>
+        const palavras = [
+        "Bem-vindo", "ao", "gerador", "de", "palavras", "aleatórias", "em", "português", "você", "pode", "criar", "palavras", "aleatoriamente", "para", "jogos", "como", "Pictionary", "Por", "exemplo", "gerar", "palavra"
+        ]
+        const exibir = document.querySelector('#resp')
+        let cont = 0
+
+
+        function pegaPalavra(){
+            resp.innerText += ` ${palavras[cont]} `
+            cont++
+
+            if (cont === palavras.length) {
+                clearInterval(intervalo); // Parar o intervalo após percorrer o array
+                resp.innerText += ` ${palavras[0]} `
+            }
+        }
+        const intervalo = setInterval(pegaPalavra, 1 * 1000)
+
+    </script>
+</body>
+</html>
