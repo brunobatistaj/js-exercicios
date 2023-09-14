@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex15</title>
+</head>
+<body>
+    <script>
+        function calculoP(num1){
+            if(num1<=1){
+                return false
+            }
+            let somaFat = 1
+            for (let i = 2; i <= Math.sqrt(num1); i++) {
+                if(num1%i === 0){
+                    somaFat += i
+                    if (i !== num1 / i) {
+                    somaFat += num1 / i;
+                }
+                }
+
+            }
+            
+            return somaFat === num1
+        }
+        
+        function encontrarNumerosPerfeitosAteN(n) {
+        for (let i = 2; i <= n; i++) {
+            if(calculoP(i)){
+                console.log(i + " é um número perfeito.");
+            }
+        }}
+        const n = parseInt(prompt("Digite um número: "))
+        encontrarNumerosPerfeitosAteN(n)
+
+    </script>
+</body>
+</html>
