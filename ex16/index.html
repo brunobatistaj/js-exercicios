@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex16</title>
+</head>
+<body>
+    <script>
+        const h = parseInt(prompt("Digite valor de hora: "))
+        const m = parseInt(prompt("Digite valor de minutos: "))
+        converter(h,m)
+
+        function converter(h,m){
+            if(h >= 0 && h <= 23 && m >= 0 && m <= 59){
+                let horas = parseFloat(h)
+                let minutos = parseFloat(m)
+                let periodo = "A.M";
+
+                if(h>=12){
+                    periodo = "P.M"
+                    horas = horas -12
+                }
+                return alert(`${horas} : ${minutos} ${periodo}`)
+            }else{
+                return alert("Horário inválido")
+            }
+            
+        }
+
+    </script>
+</body>
+</html>
