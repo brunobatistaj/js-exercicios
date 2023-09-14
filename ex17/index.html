@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex17</title>
+</head>
+<body>
+    <script>
+        function delta(a,b,c){
+            let resp = (b*b)-(4*a*c)
+            return resp
+        }
+
+        const a = parseFloat(prompt("Digite valor de a: "))
+        const b = parseFloat(prompt("Digite valor de b: "))
+        const c = parseFloat(prompt("Digite valor de c: "))
+        const resultado = delta(a,b,c)
+        alert(`Delta equivale: ${resultado}`)
+    </script>
+</body>
+</html>
