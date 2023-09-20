@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex4</title>
+</head>
+<body>
+    <h1>Contador de palavras</h1>
+    <label>Texto:</label>
+    <input type="text" name="texto" id="txt">
+    <input type="button" id="btn" value="Separar">
+    <p id="resp"></p>
+
+    <script>
+        const input = document.querySelector('#txt')
+        const resp = document.querySelector('#resp')
+        const btn = document.querySelector('#btn')
+            btn.addEventListener('click', function(){
+                separaTxt(input.value)
+            })
+
+            function separaTxt(input){
+                resp.innerHTML = ''
+                const separaTexto = input.split(' ')
+                const palavrasTamanho = {}//cria objeto
+
+                separaTexto.forEach(palavra => {
+                    const tamanho = palavra.length
+                    if(!palavrasTamanho[tamanho]){
+                        palavrasTamanho[tamanho] = [];//cria array
+                    }
+                    palavrasTamanho[tamanho].push(palavra);//coloca palavra dentro de array
+                });
+                //obtém todas as keys (tamanhos de palavras) do objeto
+                //coloca em ordem decrescente
+                const ordem = Object.keys(palavrasTamanho).map(Number).sort((a,b) => b-a)
+
+
+                ordem.forEach((tamanho) => {
+                    const palavrasOrdem = palavrasTamanho[tamanho]
+                    resp.innerHTML += `<p> ${palavrasOrdem.join(' , ')}</p>`
+                })
+            }
+    </script>
+</body>
+</html>
