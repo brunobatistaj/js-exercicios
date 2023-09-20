@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex2</title>
+</head>
+<body>
+    <script>
+        function caracteres(palavra1, palavra2){
+            palavra1 = palavra1.toLowerCase()
+            palavra2 = palavra2.toLowerCase()
+
+            const conjCaracteres1 = new Set(palavra1)
+
+            for (const char of palavra2){
+                if(!conjCaracteres1.has(char)){
+                    return alert("False")
+                }
+            }
+
+            const conjCaracteres2 = new Set(palavra2)
+            for (const char of palavra1){
+                if(!conjCaracteres2.has(char)){
+                    return alert("False")
+                }
+            }
+            return alert("True")
+        }
+
+
+        const palavra1 = prompt("Digite uma palavra:")
+        const palavra2 = prompt("Digite uma palavra:")
+        caracteres(palavra1, palavra2)
+    </script>
+</body>
+</html>
