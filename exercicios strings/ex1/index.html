@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex1</title>
+</head>
+<body>
+    <script>
+
+        const valores = prompt("Digite valores separados por virgula")
+        const separaValores = valores.split(',')
+        const qtsValores = separaValores.length
+        const crescente = separaValores.map(Number).sort(function(a,b){
+            return a-b
+        })
+        const decrescente = separaValores.map(Number).sort(function(a,b){
+            return b-a
+        })
+
+        alert("Quantidade de valores digitados: " + qtsValores)
+        alert("Valores digitados em ordem: " + separaValores.join(","))
+        alert("Valores ordem crescente: " + crescente.join(","))
+        alert("Valores ordem decrescente:: " + decrescente.join(","))
+
+    </script>
+</body>
+</html>
