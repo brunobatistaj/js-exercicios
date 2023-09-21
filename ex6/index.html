@@ -7,37 +7,30 @@
 </head>
 <body>
     <script>
-        let nomes = []
-        let nome
+        const frase = prompt('Digite uma frase: ')
+        const desloca = 3
+        const fraseCod = cesar(frase,desloca)
 
-        while(true){
-            nome = prompt("Digite um nome: ")
-            if(nome === ""){
-                break
-            }
-            nomes.push(nome)
-        }
+        function cesar(frase, desloca){
+            let fraseCod = ''
 
-        if(nomes.length === 0){
-            console.log("Sem nome inserido")
-        }else{
-            let nomeMaior = nomes[0]
-            for(let i = 1; i < nomes.length; i++){
-                if(nomes[i].length >= nomeMaior.length){
-                    nomeMaior = nomes[i]
+            for (let i = 0; i<frase.length; i++){
+                let char = frase[i]//percorre cada caracter
+                
+                if (char.match(/[A-Z]/)) { // Para letras maiúsculas
+                    let Ascii = char.charCodeAt(0)//obtem ascii do caracter
+                    Ascii = ((Ascii - 65 + desloca) % 26) + 65//desloca = 3
+                    char = String.fromCharCode(Ascii)//char recebe novo caracter
+                } else if (char.match(/[a-z]/)) { // Para letras minúsculas
+                    let Ascii = char.charCodeAt(0)//obtem ascii do caracter
+                    Ascii = ((Ascii - 97 + desloca) % 26) + 97//desloca = 3
+                    char = String.fromCharCode(Ascii)//char recebe novo caracter
                 }
+                fraseCod += char
             }
-
-            let nomeMenor = nomes[0]
-            for(let i = 1; i< nomes.length; i++){
-                if(nomes[i].length <= nomeMenor.length){
-                    nomeMenor = nomes[i]
-                }   
-            }
-            alert(`Nome mais longo: ${nomeMaior} com ${nomeMaior.length} letras`)
-            alert(`Nome mais curto: ${nomeMenor} com ${nomeMenor.length} letras`)
+            return fraseCod
         }
-
+        console.log(fraseCod)
     </script>
 </body>
 </html>
