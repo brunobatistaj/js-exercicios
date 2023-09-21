@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex5</title>
+</head>
+<body>
+    
+    <h1>Dígitos por Extenso</h1>
+    <label>Digite um valor numérico:</label>
+    <input type="text" id="numeroInput">
+    <button id="btn">Converter</button>
+    <p id="resultado"></p>
+
+    <script>
+
+        const btn = document.querySelector('#btn')
+            btn.addEventListener('click', imprimirDigitosPorExtenso)
+
+
+
+        function imprimirDigitosPorExtenso() {
+            const numeroInput = document.getElementById('numeroInput');
+            const resultado = document.getElementById('resultado');
+
+            const numero = numeroInput.value.trim();//garantir que nao tem espaço em branco
+
+
+            const digitosPorExtenso = {
+                '0': 'zero',
+                '1': 'um',
+                '2': 'dois',
+                '3': 'três',
+                '4': 'quatro',
+                '5': 'cinco',
+                '6': 'seis',
+                '7': 'sete',
+                '8': 'oito',
+                '9': 'nove'
+            };
+
+            let extenso = '';
+
+            for (let i = 0; i < numero.length; i++) {
+                const digito = numero[i];
+                extenso += digitosPorExtenso[digito];
+
+                // Adicionar espaço entre os dígitos (exceto o último)
+                if (i < numero.length - 1) {
+                    extenso += ' ';
+                }
+            }
+
+            resultado.textContent = extenso;
+        }
+    </script>
+</body>
+</html>
