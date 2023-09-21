@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex10</title>
+</head>
+<body>
+    <script>
+        const dados = []
+        const valorPadrao = prompt("Digite valor a ser filtrado:")
+
+
+        while(true){
+            const nomes = prompt("Digite o nome cadastrado:")
+            if(nomes === null){
+                break
+            }
+            const salario = parseFloat(prompt("Digite sálario da pessoa cadastrada: "))
+            if(isNaN(salario)){
+                alert("Salário inválido. Por favor, insira um valor numérico.")
+                continue
+            }
+            
+            dados.push([nomes,salario])
+            const continuar = confirm("Deseja continuar cadastrando?")
+            if (!continuar) {
+                break
+            }
+        }
+
+        function filtro(dados, valorPadrao){
+            const nome = []
+            for(let i = 0; i< dados.length; i++){
+            const nomes = dados[i][0]
+            const salario = dados[i][1]
+            console.log("Nome: " + nomes + ", Salário: " + salario)
+                if(salario>=valorPadrao){
+                    nome.push(nomes)
+                }
+            }
+            return nome
+        }
+
+
+        const filtrar = filtro(dados, valorPadrao)
+        console.log("Nomes com salário maior que solicitado: " + filtrar.join(", "));
+    </script>
+</body>
+</html>
