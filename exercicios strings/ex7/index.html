@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex7</title>
+</head>
+<body>
+    <script>
+        const numero = [5,9,8,7,15,23,46,81,20,46,90,98,7,77,45,61,1003]
+        primo(numero)
+
+
+        function primo(numero){
+            numero.forEach(elemento => {
+                let cont = 0
+                for(let i = 1; i<=elemento; i++){
+                    let resto = elemento%i
+                    if(resto === 0){
+                        cont++
+                    }
+                }
+                if(cont>=3){
+                    console.log(elemento + ' não é primo')
+                }else{
+                    console.log(elemento + ' é primo')
+                }
+            });
+        }
+    </script>
+</body>
+</html>
