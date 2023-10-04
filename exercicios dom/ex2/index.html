@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex2</title>
+</head>
+<body>
+    <main>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome">
+        <input type="button" id="btn" value="listar">
+        <br>
+        <ul id="resp">
+        </ul>
+    </main>
+
+    <script>
+        const btn = document.querySelector('#btn')
+            btn.addEventListener('click', adicionaPessoa)
+
+        function adicionaPessoa(){
+            const nomes = []
+            const nome = document.querySelector('#nome').value
+            nomes.push(nome)
+            const lista = document.querySelector('#resp')
+            
+            nomes.forEach(nome => {
+                const li = document.createElement('li')
+                li.textContent = nome
+                lista.appendChild(li)
+            })
+
+            document.querySelector('#nome').value = ''
+        }
+    </script>
+</body>
+</html>
