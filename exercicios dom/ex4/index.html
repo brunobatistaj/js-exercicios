@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex4</title>
+    <style>
+        .random-div {
+            width: 150px;
+            height: 50px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <label for="texto">String:</label>
+    <input type="text" id="texto">
+    <button id="btn">Inserir Div Aleatória</button>
+
+    <script>
+        const btn = document.querySelector('#btn')
+        btn.addEventListener('click', () =>{
+            const texto = document.querySelector('#texto').value
+            const div = document.createElement('div')
+            div.textContent = texto;
+            div.className = 'random-div'
+
+            // cores aleatórias para o fundo da div
+            const randomColor = getRandomColor()
+            div.style.backgroundColor = randomColor
+
+            // posições aleatórias na tela
+            const randomX = getRandomPosition(window.innerWidth - 150)
+            const randomY = getRandomPosition(window.innerHeight - 50)
+            div.style.left = randomX + 'px'
+            div.style.top = randomY + 'px'
+
+            document.body.appendChild(div)
+        })
+
+
+        // Função para gerar uma cor hexadecimal aleatória - encontrei no google
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF'
+            let color = '#'
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)]
+            }
+            return color
+        }
+
+        // Função para gerar uma posição aleatória na tela
+        function getRandomPosition(max) {
+            return Math.floor(Math.random() * max)
+        }
+    </script>
+</body>
+</html>
