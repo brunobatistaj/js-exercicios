@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex3</title>
+    <style>
+        .destaque {
+            color: green;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome">
+        <input type="button" id="btn" value="listar">
+        <input type="button" id="sortearBtn" value="Sortear">
+        <br>
+        <ul id="resp">
+        </ul>
+    </main>
+
+    <script>
+        const btn = document.querySelector('#btn')
+        const sortearBtn = document.querySelector('#sortearBtn');
+        const lista = document.querySelector('#resp')
+
+        btn.addEventListener('click', adicionaPessoa)
+        sortearBtn.addEventListener('click', sortearPessoa)
+
+
+        function adicionaPessoa(){
+            const nomes = []
+            const nome = document.querySelector('#nome').value
+            nomes.push(nome)
+
+            nomes.forEach(nome => {
+                const li = document.createElement('li')
+                li.textContent = nome
+                lista.appendChild(li)
+            })
+
+            document.querySelector('#nome').value = ''
+        }
+
+        function sortearPessoa(){
+            const items = lista.querySelectorAll('li')
+            const numItems = items.length
+            
+            if (numItems === 0) {
+                alert('Adicione nomes antes de sortear.')
+                return;
+            }
+            
+            items.forEach(item => {
+                item.classList.remove('destaque')
+            });
+
+            const random = Math.floor(Math.random() * numItems)
+            const sorteado = items[random]
+            
+            sorteado.classList.add('destaque')
+        }
+    </script>
+</body>
+</html>
