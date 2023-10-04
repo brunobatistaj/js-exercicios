@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex1</title>
+    <style>
+		*{
+			margin:0;
+			padding:0;
+		}
+
+		table{
+            display: none;
+			width:100%;
+			max-width: 100%;
+			text-align:left;
+			margin-bottom: 2rem;
+			background-color: #ffffff;
+			border-color: #e5e5e5;
+			border:0;
+			border-collapse:collapse;
+		}
+
+		thead{
+			color:#757575;
+			border-bottom:1px solid #e0e0e0;
+		}
+
+		tfoot{
+			color:#757575;
+			border-top:1px solid #e0e0e0;
+		}
+
+		th, tfoot>tr{
+			font-weight: 400;
+		}
+
+		tbody{
+			font-weight: 300;
+			color:#757575;
+			border-top:1px solid #e0e0e0;
+		}
+
+		th,td{
+			padding: 0.85rem;
+		}
+	</style>
+</head>
+<body>
+    <main>
+        <label for="num">Número</label>
+        <input type="number" id="num">
+        <input type="button" id="btn" value="Gerar Tabuada">
+        <br>
+
+		<table id="tela">
+			<thead>
+				<tr>
+					<th>Multiplicando</th>
+					<th>Multiplicador</th>
+                    <th>Produto</th>
+				</tr>
+			</thead>
+			<tbody id="resp">
+			</tbody>
+		</table>
+    </main>
+
+    <script>
+        const btn = document.querySelector('#btn')
+            btn.addEventListener('click', tabuada)
+
+        function tabuada(){
+            const num = document.querySelector('#num').value
+            const tabela = document.querySelector('#resp')
+            const tela = document.querySelector('#tela')
+
+            tela.style.display = 'inline-block'
+            tabela.innerHTML = ''
+
+            for(let i = 0; i<=10; i++){
+                
+                const resultado = num * i
+                
+                const tr = document.createElement('tr')
+
+                const tdMultiplicando = document.createElement('td')
+                const tdMultiplicador = document.createElement('td')
+                const tdResultado = document.createElement('td')
+
+                tdMultiplicando.textContent = num
+                tdMultiplicador.textContent = i
+                tdResultado.textContent = resultado
+
+                tr.appendChild(tdMultiplicando);
+                tr.appendChild(tdMultiplicador);
+                tr.appendChild(tdResultado);
+
+                tabela.appendChild(tr);
+            }
+
+            document.querySelector('#num').value = '';
+        }
+
+    </script>
+</body>
+</html>
